@@ -1,0 +1,81 @@
+{
+  "name": "dana-queue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app",
+  "engines": {
+    "node": ">= 8.9.0"
+  },
+  "scripts": {
+    "start": "node app",
+    "dev": "NODE_ENV=development nodemon",
+    "lint": "eslint '**/*.{js,jsx}' --quiet",
+    "watch:lint": "node node_modules/eslint-watch/bin/esw -w --fix",
+    "format": "prettier --write '**/*.{js,jsx}'",
+    "test": "NODE_ENV=test APP_PORT=4000 jest --forceExit --verbose --detectOpenHandles",
+    "test:unit": "npm test -- test/unit",
+    "test:integration": "npm test -- test/integration",
+    "test:watch": "knex migrate:latest --env test && npm test -- --watch",
+    "test:watch:unit": "npm run test:unit -- --watch",
+    "test:watch:integration": "npm run test:integration -- --watch",
+    "test:coverage": "npm test -- --coverage",
+    "test:coverage:unit": "npm run test:unit -- --coverage",
+    "test:coverage:integration": "npm run test:integration -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/long.nguyen.enouvo/danaqueue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/long.nguyen.enouvo/danaqueue"
+  },
+  "homepage": "https://gitlab.com/long.nguyen.enouvo/danaqueue#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "boom": "^7.2.2",
+    "dotenv": "^6.1.0",
+    "firebase-admin": "^6.2.0",
+    "glob": "^7.1.3",
+    "hapi": "^17.7.0",
+    "hapi-auth-jwt2": "^8.1.0",
+    "hapi-swagger": "^9.1.2",
+    "inert": "^5.1.2",
+    "joi": "^14.0.4",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "mrhorse": "^3.0.1",
+    "objection": "^1.4.0",
+    "objection-filter": "github:longnt189/objection-filter#f6dfde0f121d2b2271bc06754c8f8f5d9b65c7d2",
+    "pg": "^7.6.1",
+    "vision": "^5.4.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
+    "jest": "^23.6.0",
+    "jest-nyan-reporter": "^1.0.2",
+    "prettier": "^1.15.1"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "reporters": [
+      [
+        "jest-nyan-reporter",
+        {
+          "suppressErrorReporter": false
+        }
+      ]
+    ]
+  }
+}
